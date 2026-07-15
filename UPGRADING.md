@@ -9,6 +9,7 @@ This document summarizes the changes relevant for users when upgrading to new ve
 - PHP `^7.4 || ^8` → `^8.3`
 - `symfony/config` `^4.4 || ^5.0 || ^6.0 || ^7.0` → `^7.4 || ^8.0`
 - `behat/behat` `^3.0.5` → `^3.32 || ^4.0`
+- `behat/mink` `^1.5` → `^1.11`
 
 ## Abandoned driver factories removed
 
@@ -21,6 +22,12 @@ Switch to `browserkit_http` (via `behat/mink-browserkit-driver`) or another acti
 
 Step definitions in `MinkContext` now use PHP 8 attributes (`#[\Behat\Step\Given(...)]` etc.) instead of
 docblock annotations. Behat 3.32+ and Behat 4.x are both supported.
+
+Behat 4 no longer supports the classic `behat.yml` configuration format and requires PHP-based
+configuration files (`behat.php`). On Behat 3.x, `behat.yml` still works, but the format is deprecated in
+favour of `behat.php`. The documentation examples now use the `behat.php` format. If you are still using
+`behat.yml`, convert it with Behat's built-in converter (`vendor/bin/behat --convert-config`) before
+upgrading to Behat 4.
 
 ## `FailureShowListener`, `SessionsListener` and `MinkExtension` are now `final`
 
